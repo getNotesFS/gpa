@@ -13,13 +13,14 @@ import {
 } from "@/components/ui/dialog"
 
 import Image from "next/image"
+import FloatingShareButton from "@/components/component/FloatingShareButton"
 
 export default function HeroSection() {
   return (
     // 
 
     <section className="w-full py-48 md:py-24 lg:py-32 xl:py-48   dark:black ">
-
+      <FloatingShareButton />
       <div className=" xs:p-0 sm:px-4 md:px-6">
 
         <div className="flex flex-col items-center space-y-4 text-center">

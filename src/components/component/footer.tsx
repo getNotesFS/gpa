@@ -8,24 +8,26 @@ export default function Footer() {
     <footer className="bg-[#ffffff] dark:bg-transparent   py-4 mt-4 w-full max-w-7xl">
       <div className="flex justify-between items-center flex-wrap">
         <div className="flex items-center gap-3">
-          <Avatar className="h-9 w-9">
-            <AvatarImage alt="Author's avatar" src="/dragon-3.jpeg" />
-            <AvatarFallback>SM</AvatarFallback>
-          </Avatar>
-          <div className="grid gap-0.5 text-xs">
-            <div className="font-medium">SM</div>
-            <div className="text-gray-500 dark:text-gray-400 break-all">contacto@sfmarmol.com</div>
-          </div>
+          <a href="mailto:contacto@sfmarmol.com" className="flex gap-2">
+            <Avatar className="h-9 w-9">
+              <AvatarImage alt="Author's avatar" src="/dragon-3.jpeg" />
+              <AvatarFallback>SM</AvatarFallback>
+            </Avatar>
+            <div className="grid gap-0.5 text-xs">
+              <div className="font-medium">SM</div>
+              <div className="text-gray-500 dark:text-gray-400 break-all">contacto@sfmarmol.com</div>
+            </div>
+          </a>
         </div>
         <div className="flex gap-2">
-          
+
           <Button className="text-sm" variant="link">
-            <a href="#" rel="noopener noreferrer" target="_blank">
+            <a href="https://github.com/getNotesFS" rel="noopener noreferrer" target="_blank">
               <FaGithub className="w-4 h-4" />
             </a>
           </Button>
           <Button className="text-sm" variant="link">
-            <a href="#" rel="noopener noreferrer" target="_blank">
+            <a href="https://www.linkedin.com/in/sfmarmol/" rel="noopener noreferrer" target="_blank">
               <FaLinkedin className="w-4 h-4" />
             </a>
           </Button>

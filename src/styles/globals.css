@@ -82,3 +82,10 @@
 }
 
 
+.floating-share-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1000;
+  /* Agrega más estilos según tu diseño */
+}
