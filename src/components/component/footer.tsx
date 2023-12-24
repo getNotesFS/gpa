@@ -8,9 +8,9 @@ export default function Footer() {
     <footer className="bg-[#ffffff] dark:bg-transparent   py-4 mt-4 w-full max-w-7xl">
       <div className="flex justify-between items-center flex-wrap">
         <div className="flex items-center gap-3">
-          <a href="mailto:contacto@sfmarmol.com" className="flex gap-2">
+          <a href="mailto:contacto@sfmarmol.com" className="flex gap-2" title="Correo electrónico">
             <Avatar className="h-9 w-9">
-              <AvatarImage alt="Author's avatar" src="/dragon-3.jpeg" />
+              <AvatarImage alt="Avatar de SM" title="Avatar representativo" src="/dragon-3.jpeg"  />
               <AvatarFallback>SM</AvatarFallback>
             </Avatar>
             <div className="grid gap-0.5 text-xs">
@@ -21,13 +21,13 @@ export default function Footer() {
         </div>
         <div className="flex gap-2">
 
-          <Button className="text-sm" variant="link">
-            <a href="https://github.com/getNotesFS" rel="noopener noreferrer" target="_blank">
+          <Button className="text-sm" variant="link" name="link-github" aria-label="">
+            <a href="https://github.com/getNotesFS" rel="noopener noreferrer" target="_blank" title="Visitar repositorio de GetNotesFS">
               <FaGithub className="w-4 h-4" />
             </a>
           </Button>
-          <Button className="text-sm" variant="link">
-            <a href="https://www.linkedin.com/in/sfmarmol/" rel="noopener noreferrer" target="_blank">
+          <Button className="text-sm" variant="link" name="link-linkedin" aria-label="">
+            <a href="https://www.linkedin.com/in/sfmarmol/" rel="noopener noreferrer" target="_blank" title="Visitar perfil de LinkedIn">
               <FaLinkedin className="w-4 h-4" />
             </a>
           </Button>

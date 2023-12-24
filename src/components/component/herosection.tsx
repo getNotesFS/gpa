@@ -30,17 +30,17 @@ export default function HeroSection() {
               ¿Cuál es mi <span className="text-red-600">GPA</span>?
             </h1>
             <p className="mx-auto max-w-[900px] text-gray-500 md:text-xl dark:text-gray-400">
-              Una calculadora de GPA para estudiantes de la Universidad de San Francisco de Quito.
+              Una calculadora de GPA para estudiantes de la Universidad San Francisco de Quito.
             </p>
           </div>
           <div className="flex flex-col items-center space-y-4 md:space-y-0 md:flex-row md:space-x-4">
-            <Link href="#calculargpa">
-              <Button className="w-full md:w-auto">Calcular GPA</Button>
+            <Link href="#calculargpa" title="Enlace al form de calcular gpa">
+              <Button className="w-full md:w-auto" name="calcular-gpa">Calcular GPA</Button>
             </Link>
 
             <Dialog >
               <DialogTrigger asChild>
-                <Button variant="secondary">Acerca de</Button>
+                <Button variant="secondary" name="acerca-de">Acerca de</Button>
               </DialogTrigger>
               <DialogContent className="overflow-y-auto  max-h-[600px] md:w-2/3 sm:w-11/12 dark:bg-[#151f3b]  ">
                 <DialogHeader >
@@ -156,7 +156,7 @@ export default function HeroSection() {
                 </DialogHeader>
                 <DialogFooter className="lg:justify-center pb-8">
                   <DialogClose asChild>
-                    <Button type="button" variant="secondary" className="md:w-full lg:w-auto">
+                    <Button type="button" variant="secondary" name="continuar" className="md:w-full lg:w-auto">
                       Continuar
                     </Button>
                   </DialogClose>

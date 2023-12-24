@@ -12,7 +12,8 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: 'Calcular GPA',
-  description: 'Una calculadora de GPA para estudiantes de la Universidad de San Francisco de Quito.',
+  description: 'Una calculadora de GPA para estudiantes de la Universidad San Francisco de Quito.',
+  keywords: 'GPA, calculadora, USFQ, Universidad San Francisco de Quito, calculadora de GPA, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito, calculadora de GPA USFQ, calculadora de GPA Universidad San Francisco de Quito',
 }
 
 export default function RootLayout({

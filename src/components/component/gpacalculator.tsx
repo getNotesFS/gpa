@@ -249,7 +249,7 @@ export default function GPACalculator() {
 
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="secondary">¡Sorpresa!</Button>
+                    <Button variant="secondary" name='sorpresa-btn'>¡Sorpresa!</Button>
                   </DialogTrigger>
                   <DialogContent className="overflow-y-auto  max-h-[600px] md:w-2/3 sm:w-11/12 dark:bg-[#151f3b]">
                     <DialogHeader >
@@ -280,7 +280,7 @@ export default function GPACalculator() {
                     </DialogHeader>
                     <DialogFooter className="lg:justify-center pb-8">
                       <DialogClose asChild>
-                        <Button type="button" variant="secondary" className="md:w-full lg:w-auto">
+                        <Button type="button" variant="secondary" name='continuar-btn' className="md:w-full lg:w-auto">
                           Continuar
                         </Button>
                       </DialogClose>
@@ -298,7 +298,7 @@ export default function GPACalculator() {
                 <p>Estás en  Lista de Honor del DECANATO</p>
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="secondary">¡Sorpresa!</Button>
+                    <Button variant="secondary" name='sorpresa-2'>¡Sorpresa!</Button>
                   </DialogTrigger>
                   <DialogContent className="overflow-y-auto  max-h-[600px] md:w-2/3 sm:w-11/12 dark:bg-[#151f3b]">
                     <DialogHeader >
@@ -326,7 +326,7 @@ export default function GPACalculator() {
                     </DialogHeader>
                     <DialogFooter className="lg:justify-center pb-8">
                   <DialogClose asChild>
-                    <Button type="button" variant="secondary" className="md:w-full lg:w-auto">
+                    <Button type="button" variant="secondary" name='continuar-btn' className="md:w-full lg:w-auto">
                       Continuar
                     </Button>
                   </DialogClose>
@@ -412,6 +412,7 @@ export default function GPACalculator() {
           className="w-full break-words"
           onClick={addSubject}
           type='button'
+          name='agregar-btn'
           disabled={currentSubject.grade === '' || currentSubject.credits === 0}
         >Añadir Calificación</Button>
 
@@ -426,6 +427,7 @@ export default function GPACalculator() {
             variant="secondary"
             onClick={toggleExpand}
             type='button'
+            name='mostrar-btn'
           >{isExpanded ? 'Ocultar' : 'Mostrar'} Asigtaturas</Button>
         </div>
 
@@ -435,7 +437,7 @@ export default function GPACalculator() {
           <div className="mt-6">
             {subjects.length > 0 ? (
               <section className=' flex flex-col gap-3'>
-                <Button className='self-end' type='button' onClick={handleClearSubjects}> <FaTrash className="h-3 w-3 mr-1" /> Limpiar</Button>
+                <Button className='self-end' type='button' name='limpiar-btn' onClick={handleClearSubjects}> <FaTrash className="h-3 w-3 mr-1" /> Limpiar</Button>
 
                 <ul className="flex flex-col gap-2  ">
                   {subjects.map((subject, index) => (
@@ -455,7 +457,7 @@ export default function GPACalculator() {
 
 
                       </div>
-                      <button type='button' onClick={() => removeSubject(index)} className="text-red-500 hover:text-red-700">
+                      <button type='button' onClick={() => removeSubject(index)} className="text-red-500 hover:text-red-700" name='eliminar-btn'>
                         <FaTrash className="h-5 w-5" />
                       </button>
                     </li>
