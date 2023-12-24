@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="flex items-center gap-3">
           <a href="mailto:contacto@sfmarmol.com" className="flex gap-2" title="Correo electrónico">
             <Avatar className="h-9 w-9">
-              <AvatarImage alt="Avatar de SM" title="Avatar representativo" src="/dragon-3.jpeg"  />
+              <AvatarImage alt="Avatar de SM" title="Avatar representativo" src="/dragon-3.jpeg" width={36} height={36} />
               <AvatarFallback>SM</AvatarFallback>
             </Avatar>
             <div className="grid gap-0.5 text-xs">
