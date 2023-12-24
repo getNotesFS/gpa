@@ -30,6 +30,8 @@ type Subject = {
   name: string;
   credits: number;
   grade: string;
+  points?: number;
+  credits_nc: number;
 };
 
 import mensajes from '@/data/data.js';
@@ -40,12 +42,12 @@ export default function GPACalculator() {
 
 
   const [subjects, setSubjects] = useState<Subject[]>([]);
-  const [currentSubject, setCurrentSubject] = useState<Subject>({ name: '', credits: 0, grade: '' });
+  const [currentSubject, setCurrentSubject] = useState<Subject>({ name: '', credits: 0, grade: '', points: 0, credits_nc: 0 });
 
   const [gpa, setGPA] = useState<number>(0);
   const [totalCredits, setTotalCredits] = useState<number>(0);
   const [totalPoints, setTotalPoints] = useState<number>(0);
-
+  const [totalCredits_nc, setTotalCredits_nc] = useState<number>(0);
   const [isExpanded, setIsExpanded] = useState(false);
 
   const [mensajeAliento, setMensajeAliento] = useState<String>('');
@@ -81,6 +83,12 @@ export default function GPACalculator() {
         description: "Selecciona una calificación para calcular tu GPA.",
       })
     } else {
+
+      if (currentSubject.grade === 'P') {
+        currentSubject.credits_nc = currentSubject.credits;
+        currentSubject.credits = 0;
+        currentSubject.points = 0;
+      }
       setSubjects([...subjects, currentSubject]);
       toast({
         title: "Calificación de " + currentSubject.name + " agregada",
@@ -94,7 +102,7 @@ export default function GPACalculator() {
 
       calculateGPA();
 
-      setCurrentSubject({ name: '', credits: 0, grade: '' });
+      setCurrentSubject({ name: '', credits: 0, grade: '', points: 0, credits_nc: 0 });
     }
 
 
@@ -123,11 +131,19 @@ export default function GPACalculator() {
 
 
     const totalCredits = subjects.reduce((total, subject) => total + subject.credits, 0);
+
     if (totalCredits === 0) {
       setGPA(0);
       setTotalCredits(0);
       setTotalPoints(0);
       return;
+    }
+
+    const totalCredits_nc = subjects.reduce((total, subject) => total + subject.credits_nc, 0);
+    if (totalCredits_nc != 0) {
+      setTotalCredits_nc(totalCredits_nc);
+    } else {
+      setTotalCredits_nc(0);
     }
 
     const totalPoints = subjects.reduce((total, subject) => total + (gradeToPoint(subject.grade) * subject.credits), 0);
@@ -150,7 +166,7 @@ export default function GPACalculator() {
     if (grade === 'D') return 1;
     if (grade === 'F') return 0;
     if (currentSubject.credits != 0 && currentSubject.grade === 'P') {
-      return 1;
+      return 0;
     }
     if (currentSubject.credits === 0 && currentSubject.grade === 'P') {
       return 0;
@@ -175,7 +191,7 @@ export default function GPACalculator() {
 
   const handleClearSubjects = () => {
     setSubjects([]);
-    setCurrentSubject({ name: '', credits: 0, grade: '' });
+    setCurrentSubject({ name: '', credits: 0, grade: '', points: 0, credits_nc: 0 });
     setGPA(0);
     setTotalCredits(0);
     setTotalPoints(0);
@@ -212,6 +228,18 @@ export default function GPACalculator() {
           <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white dark:custom-shadow">
             <h3 className="text-gray-600 dark:text-gray-300 text-sm font-semibold">Total de Créditos</h3>
             <p className="text-xl font-bold">{totalCredits}</p>
+            <div>
+              {totalCredits_nc != 0 ? (
+                 <div className="text-sm font-semibold text-gray-600 dark:text-gray-300">
+                 <p className="text-xs font-bold">No contables</p>
+                 <p className="text-xs font-bold">{totalCredits_nc}</p>
+               </div>
+               ) : ''
+               }
+
+             
+
+            </div>
           </div>
 
           <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white dark:custom-shadow">
@@ -325,12 +353,12 @@ export default function GPACalculator() {
 
                     </DialogHeader>
                     <DialogFooter className="lg:justify-center pb-8">
-                  <DialogClose asChild>
-                    <Button type="button" variant="secondary" name='continuar-btn' className="md:w-full lg:w-auto">
-                      Continuar
-                    </Button>
-                  </DialogClose>
-                </DialogFooter>
+                      <DialogClose asChild>
+                        <Button type="button" variant="secondary" name='continuar-btn' className="md:w-full lg:w-auto">
+                          Continuar
+                        </Button>
+                      </DialogClose>
+                    </DialogFooter>
                   </DialogContent>
                 </Dialog>
               </div>
@@ -448,9 +476,10 @@ export default function GPACalculator() {
                         <div>
                           <p className="text-sm font-medium">{subject.name}</p>
 
-                          <div className="flex row-gap-3 text-sm text-muted-foreground sm:flex-col flex-row flex-wrap">
-                            <div className="flex items-center"> <MdOutlineNumbers />Créditos: {subject.credits}</div>
+                          <div className="flex row-gap-3 text-sm text-muted-foreground flex-row flex-wrap">
+                            <div className="flex items-center"><MdOutlineNumbers />Créditos: {subject.credits}</div>
                             <div className="flex items-center"><MdGrade />Calificación: {subject.grade}</div>
+                            <div className="flex items-center"><MdGrade />Puntos: {subject.points}</div>
                           </div>
 
                         </div>
