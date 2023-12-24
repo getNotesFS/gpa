@@ -81,9 +81,14 @@ export default function GPACalculator() {
     } else {
       setSubjects([...subjects, currentSubject]);
       toast({
-        title: "Calificación agregada: " + currentSubject.name,
-        description: "Créditos: " + currentSubject.credits + ", Calificación: " + currentSubject.grade,
-      })
+        title: "Calificación de " + currentSubject.name + " agregada",
+        description: (
+          <>
+            <strong>Créditos: </strong>{currentSubject.credits},  <strong>Calificación: </strong>{currentSubject.grade}
+          </>
+        ),
+      });
+      
 
       calculateGPA();
 
@@ -94,8 +99,20 @@ export default function GPACalculator() {
   };
 
   const removeSubject = (index: number) => {
+    
+
+
+   
     setSubjects(subjects.filter((_, i) => i !== index));
     calculateGPA();
+   
+    toast({
+      description: (
+        <span>
+          Se ha eliminado la calificación de <strong>{subjects[index].name}</strong>
+        </span>
+      )
+    })
   };
 
 
@@ -152,6 +169,19 @@ export default function GPACalculator() {
 
   const handleGradeChange = (value: string) => {
     setCurrentSubject({ ...currentSubject, grade: value });
+  };
+
+  const handleClearSubjects = () => {
+    setSubjects([]);
+    setCurrentSubject({ name: '', credits: 0, grade: '' });
+    setGPA(0);
+    setTotalCredits(0);
+    setTotalPoints(0);
+    setTexto('');
+
+    toast({
+      title: "Se han eliminado todas las calificaciones", 
+    })
   };
 
   useEffect(() => {
@@ -219,7 +249,7 @@ export default function GPACalculator() {
                   <DialogTrigger asChild>
                     <Button variant="secondary">¡Sorpresa!</Button>
                   </DialogTrigger>
-                  <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 mb-4 min-w-min w-fit">
+                  <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 mb-4 min-w-min  md:w-fit sm:w-11/12">
                     <DialogHeader >
                       <DialogTitle>Reclama tu regalo</DialogTitle>
                       <div className="overflow-y-auto text-left">
@@ -261,7 +291,7 @@ export default function GPACalculator() {
                   <DialogTrigger asChild>
                     <Button variant="secondary">¡Sorpresa!</Button>
                   </DialogTrigger>
-                  <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 min-w-min w-fit">
+                  <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 min-w-min md:w-fit sm:w-11/12">
                     <DialogHeader >
                       <DialogTitle>Reclama tu regalo</DialogTitle>
                       <div className="overflow-y-auto text-left">
@@ -386,30 +416,34 @@ export default function GPACalculator() {
         {isExpanded && (
           <div className="mt-6">
             {subjects.length > 0 ? (
-              <ul className="divide-y divide-gray-200 dark:divide-white">
-                {subjects.map((subject, index) => (
-                  <li key={index}
-                    className="flex justify-between items-center   px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:text-white dark:hover:bg-gray-800">
-                    <div className="flex items-center space-x-4">
-                      <FaBook />
-                      <div>
-                        <p className="text-sm font-medium">{subject.name}</p>
+              <section className=' flex flex-col gap-3'>
+                <Button className='self-end' onClick={handleClearSubjects}> <FaTrash className="h-3 w-3 mr-1" /> Clear</Button>
 
-                        <div className="flex space-x-4 text-sm text-muted-foreground">
-                          <div className="flex items-center"> <MdOutlineNumbers />Créditos: {subject.credits}</div>
-                          <div className="flex items-center"><MdGrade />Calificación: {subject.grade}</div>
+                <ul className="flex flex-col gap-2  ">
+                  {subjects.map((subject, index) => (
+                    <li key={index}
+                      className="flex justify-between items-center   px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:text-white dark:hover:bg-gray-800 border dark:border dark:border-solid dark:border-white">
+                      <div className="flex items-center space-x-4">
+                        <FaBook />
+                        <div>
+                          <p className="text-sm font-medium">{subject.name}</p>
+
+                          <div className="flex row-gap-3 text-sm text-muted-foreground sm:flex-col flex-row flex-wrap">
+                            <div className="flex items-center"> <MdOutlineNumbers />Créditos: {subject.credits}</div>
+                            <div className="flex items-center"><MdGrade />Calificación: {subject.grade}</div>
+                          </div>
+
                         </div>
 
+
                       </div>
-
-
-                    </div>
-                    <button onClick={() => removeSubject(index)} className="text-red-500 hover:text-red-700">
-                      <FaTrash className="h-5 w-5" />
-                    </button>
-                  </li>
-                ))}
-              </ul>
+                      <button type='button' onClick={() => removeSubject(index)} className="text-red-500 hover:text-red-700">
+                        <FaTrash className="h-5 w-5" />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             ) : (
               <p className="text-gray-500 text-center">Agrega calificaciones para calcular tu GPA.</p>
             )}
