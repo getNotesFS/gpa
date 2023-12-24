@@ -84,7 +84,7 @@ export default function GPACalculator() {
       })
     } else {
 
-      if (currentSubject.grade === 'P') {
+      if (currentSubject.grade === 'P' || currentSubject.grade === 'F' && currentSubject.credits === 1) {
         currentSubject.credits_nc = currentSubject.credits;
         currentSubject.credits = 0;
         currentSubject.points = 0;
