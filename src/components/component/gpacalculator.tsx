@@ -129,7 +129,13 @@ export default function GPACalculator() {
   const calculateGPA = useCallback(() => {
 
 
-
+    const totalCredits_nc = subjects.reduce((total, subject) => total + subject.credits_nc, 0);
+    if (totalCredits_nc != 0) {
+      setTotalCredits_nc(totalCredits_nc);
+    } else {
+      setTotalCredits_nc(0);
+    }
+    
     const totalCredits = subjects.reduce((total, subject) => total + subject.credits, 0);
 
     if (totalCredits === 0) {
@@ -139,12 +145,7 @@ export default function GPACalculator() {
       return;
     }
 
-    const totalCredits_nc = subjects.reduce((total, subject) => total + subject.credits_nc, 0);
-    if (totalCredits_nc != 0) {
-      setTotalCredits_nc(totalCredits_nc);
-    } else {
-      setTotalCredits_nc(0);
-    }
+   
 
     const totalPoints = subjects.reduce((total, subject) => total + (gradeToPoint(subject.grade) * subject.credits), 0);
 
