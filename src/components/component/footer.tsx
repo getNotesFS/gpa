@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-3">
           <Avatar className="h-9 w-9">
-            <AvatarImage alt="Author's avatar" src="/placeholder-avatar.jpg" />
+            <AvatarImage alt="Author's avatar" src="/dragon-3.jpeg" />
             <AvatarFallback>SM</AvatarFallback>
           </Avatar>
           <div className="grid gap-0.5 text-xs">
