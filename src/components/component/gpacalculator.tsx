@@ -164,264 +164,264 @@ export default function GPACalculator() {
 
   return (
     <Card className="w-full max-w-2xl mx-auto mt-12 px-4 py-8  shadow-md rounded-lg dark:custom-shadow mb-12">
-    <CardHeader>
-      <CardTitle className="text-2xl">Calcular GPA</CardTitle>
-      <CardDescription>Ingresa la asignatura (o cualquier identificador), el número de créditos y la letra.</CardDescription>
-    </CardHeader>
-    <CardContent className="space-y-4">
-      <div className="mt-6 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-8">
-
-        
-        <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white  dark:custom-shadow">
-          <h3 className="text-gray-600 dark:text-gray-300 text-sm font-semibold">Total de Asignaturas</h3>
-          <p className="text-xl font-bold">{subjects.length}</p>
-        </div>
-
-        <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white dark:custom-shadow">
-          <h3 className="text-gray-600 dark:text-gray-300 text-sm font-semibold">Total de Créditos</h3>
-          <p className="text-xl font-bold">{totalCredits}</p>
-        </div>
-
-        <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white dark:custom-shadow">
-          <h3 className="text-gray-600 dark:text-gray-300 text-sm font-semibold">Total de Puntos</h3>
-          <p className="text-xl font-bold">{totalPoints}</p>
-        </div>
-
-        <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white dark:custom-shadow">
-          <h3 className="text-gray-600 dark:text-gray-300 text-sm font-semibold">GPA</h3>
-          <p className="text-xl font-bold">{gpa.toFixed(2)}</p>
-          {gpa >= 3.70 ? (
+      <CardHeader>
+        <CardTitle className="text-2xl">Calcular GPA</CardTitle>
+        <CardDescription>Ingresa la asignatura (o cualquier identificador), el número de créditos y la letra.</CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <div className="mt-6 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-8">
 
 
-            <Image src="/congrats.png" alt="" width={32} height={32} />
-          ) : ''}
-          {gpa >= 3.50 && gpa < 3.70 ? (
+          <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white  dark:custom-shadow">
+            <h3 className="text-gray-600 dark:text-gray-300 text-sm font-semibold">Total de Asignaturas</h3>
+            <p className="text-xl font-bold">{subjects.length}</p>
+          </div>
 
+          <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white dark:custom-shadow">
+            <h3 className="text-gray-600 dark:text-gray-300 text-sm font-semibold">Total de Créditos</h3>
+            <p className="text-xl font-bold">{totalCredits}</p>
+          </div>
 
+          <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white dark:custom-shadow">
+            <h3 className="text-gray-600 dark:text-gray-300 text-sm font-semibold">Total de Puntos</h3>
+            <p className="text-xl font-bold">{totalPoints}</p>
+          </div>
 
-            <Image src="/congrats.png" alt="" width={32} height={32} />
-          ) : ''}
-        </div>
+          <div className="  p-4 rounded-lg shadow-md dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white dark:custom-shadow">
+            <h3 className="text-gray-600 dark:text-gray-300 text-sm font-semibold">GPA</h3>
+            <p className="text-xl font-bold">{gpa.toFixed(2)}</p>
+            {gpa >= 3.70 ? (
 
-      </div>
-      <div>
-
-
-        {gpa >= 3.70 && subjects.length >= 2 ? (
-          <div className='text-xl font-bold  text-center text-xs bg-gray-50 dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white rounded-md p-2  p-2 gap-4'>
-
-            <div className='inline-flex items-center gap-2'>
 
               <Image src="/congrats.png" alt="" width={32} height={32} />
-              <p>Estás en  Lista de Honor del CANCILLER</p>
+            ) : ''}
+            {gpa >= 3.50 && gpa < 3.70 ? (
 
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button variant="secondary">¡Sorpresa!</Button>
-                </DialogTrigger>
-                <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 mb-4 min-w-min w-fit">
-                  <DialogHeader >
-                    <DialogTitle>Reclama tu regalo</DialogTitle>
-                    <div className="overflow-y-auto text-left">
-                      <div className="pt-4 text-gray-700 justify-center">
-                        <br />
-                        <ImQuotesRight size={32} className="text-gray-600" />
-                        <p className="text-gray-600 dark:text-white">{mensajeFelicitaciones}</p>
-                        <br />
 
-                        <div className='flex justify-center   flex-col items-center'>
-                          <Image src="/dragon-1.jpeg" alt="" width={500} height={500} />
-                          <a href="/dragon-1.jpeg" download="dragon-1.jpeg" className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
-                            <FaCloudDownloadAlt className="w-5 h-5 mr-2" />
-                            Descargar
-                          </a>
+
+              <Image src="/congrats.png" alt="" width={32} height={32} />
+            ) : ''}
+          </div>
+
+        </div>
+        <div>
+
+
+          {gpa >= 3.70 && subjects.length >= 2 ? (
+            <div className='text-xl font-bold  text-center text-xs bg-gray-50 dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white rounded-md p-2  p-2 gap-4'>
+
+              <div className='inline-flex items-center gap-2'>
+
+                <Image src="/congrats.png" alt="" width={32} height={32} />
+                <p>Estás en  Lista de Honor del CANCILLER</p>
+
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="secondary">¡Sorpresa!</Button>
+                  </DialogTrigger>
+                  <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 mb-4 min-w-min w-fit">
+                    <DialogHeader >
+                      <DialogTitle>Reclama tu regalo</DialogTitle>
+                      <div className="overflow-y-auto text-left">
+                        <div className="pt-4 text-gray-700 justify-center">
+                          <br />
+                          <ImQuotesRight size={32} className="text-gray-600" />
+                          <p className="text-gray-600 dark:text-white">{mensajeFelicitaciones}</p>
+                          <br />
+
+                          <div className='flex justify-center   flex-col items-center'>
+                            <Image src="/dragon-1.jpeg" alt="" width={500} height={500} />
+                            <a href="/dragon-1.jpeg" download="dragon-1.jpeg" className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
+                              <FaCloudDownloadAlt className="w-5 h-5 mr-2" />
+                              Descargar
+                            </a>
+                          </div>
+
+                        </div>
+
+
+
+
+                      </div>
+
+
+                    </DialogHeader>
+                  </DialogContent>
+                </Dialog>
+              </div>
+            </div>
+          ) : ''}
+          {gpa >= 3.50 && gpa < 3.70 && subjects.length >= 2 ? (
+            <div className='text-xl font-bold  text-center text-xs bg-gray-50 dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white rounded-md p-2  p-2 gap-4'>
+
+              <div className='inline-flex items-center gap-2'>
+                <Image src="/congrats.png" alt="" width={32} height={32} />
+                <p>Estás en  Lista de Honor del DECANATO</p>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="secondary">¡Sorpresa!</Button>
+                  </DialogTrigger>
+                  <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 min-w-min w-fit">
+                    <DialogHeader >
+                      <DialogTitle>Reclama tu regalo</DialogTitle>
+                      <div className="overflow-y-auto text-left">
+                        <div className="pt-4 text-gray-700">
+                          <br />
+                          <ImQuotesRight size={32} className="text-gray-600" />
+                          <p className="text-gray-600 dark:text-white">{mensajeFelicitaciones}</p>
+                          <br />
+
+
+                          <div className='flex justify-center   flex-col items-center'>
+                            <Image src="/dragon-2.jpeg" alt="" width={500} height={500} />
+                            <a href="/dragon-2.jpeg" download="dragon-2.jpeg" className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
+                              <FaCloudDownloadAlt className="w-5 h-5 mr-2" />
+                              Descargar
+                            </a>
+                          </div>
                         </div>
 
                       </div>
 
 
-
-
-                    </div>
-
-
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
+                    </DialogHeader>
+                  </DialogContent>
+                </Dialog>
+              </div>
             </div>
-          </div>
-        ) : ''}
-        {gpa >= 3.50 && gpa < 3.70 && subjects.length >= 2  ? (
-          <div className='text-xl font-bold  text-center text-xs bg-gray-50 dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white rounded-md p-2  p-2 gap-4'>
+          ) : ''}
 
-            <div className='inline-flex items-center gap-2'>
-              <Image src="/congrats.png" alt="" width={32} height={32} />
-              <p>Estás en  Lista de Honor del DECANATO</p>
-              <Dialog>
-                <DialogTrigger asChild>
-                  <Button variant="secondary">¡Sorpresa!</Button>
-                </DialogTrigger>
-                <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 min-w-min w-fit">
-                  <DialogHeader >
-                    <DialogTitle>Reclama tu regalo</DialogTitle>
-                    <div className="overflow-y-auto text-left">
-                      <div className="pt-4 text-gray-700">
-                        <br />
-                        <ImQuotesRight size={32} className="text-gray-600" />
-                        <p className="text-gray-600 dark:text-white">{mensajeFelicitaciones}</p>
-                        <br />
+          {gpa < 3.50 && gpa > 0 && subjects.length >= 2 ? (
+            <div className='text-xl font-bold  text-center text-xs bg-gray-50 dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white rounded-md p-2  p-2 gap-4'>
+
+              <div className='inline-flex items-center gap-2'>
+
+                <br />
+                <ImQuotesRight size={32} className="text-gray-600" />
+                <blockquote className="text-gray-600 dark:text-white">{mensajeAliento} 💪🏼</blockquote>
+                <br />
 
 
-                        <div className='flex justify-center   flex-col items-center'>
-                          <Image src="/dragon-2.jpeg" alt="" width={500} height={500} />
-                          <a href="/dragon-2.jpeg" download="dragon-2.jpeg" className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
-                            <FaCloudDownloadAlt className="w-5 h-5 mr-2" />
-                            Descargar
-                          </a>
-                        </div>
-                      </div>
-
-                    </div>
-
-
-                  </DialogHeader>
-                </DialogContent>
-              </Dialog>
+              </div>
             </div>
-          </div>
-        ) : ''}
-
-        {gpa < 3.50 && gpa > 0 && subjects.length >= 2 ? (
-         <div className='text-xl font-bold  text-center text-xs bg-gray-50 dark:bg-transparent dark:text-white dark:border dark:border-solid dark:border-white rounded-md p-2  p-2 gap-4'>
-
-            <div className='inline-flex items-center gap-2'>
-
-              <br />
-              <ImQuotesRight size={32} className="text-gray-600" />
-              <blockquote className="text-gray-600 dark:text-white">{mensajeAliento} 💪🏼</blockquote>
-              <br />
-
-
-            </div>
-          </div>
-        ) : ''}
+          ) : ''}
 
 
 
-      </div>
-      <div className="space-y-2">
-        <Label htmlFor="subjectName">Asignatura</Label>
-        <Input
-          id="subjectName"
-          placeholder="Nombre de la asignatura (opcional)"
-          required
-          onChange={handleSubjectNameChange}
-          value={currentSubject.name || ''}
-        />
-      </div>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="subjectName">Asignatura</Label>
+          <Input
+            id="subjectName"
+            placeholder="Nombre de la asignatura (opcional)"
+            required
+            onChange={handleSubjectNameChange}
+            value={currentSubject.name || ''}
+          />
+        </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="creditHours">Número de Créditos</Label>
-        <Input id="creditHours"
-          placeholder="Ingresa el número de créditos"
-          required type="number"
-          onChange={handleCreditHoursChange}
-          value={currentSubject.credits || ''}
-        />
-      </div>
+        <div className="space-y-2">
+          <Label htmlFor="creditHours">Número de Créditos</Label>
+          <Input id="creditHours"
+            placeholder="Ingresa el número de créditos"
+            required type="number"
+            onChange={handleCreditHoursChange}
+            value={currentSubject.credits || ''}
+          />
+        </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="grades">Calificicación</Label>
-        <ToggleGroup
-          type="single"
-          variant="filled"
-          onValueChange={handleGradeChange}
-          value={currentSubject.grade || ''}
-          className='justify-start'
-        >
-          <ToggleGroupItem value="A" aria-label="Calificación con A ">
-            A
-          </ToggleGroupItem>
-          <ToggleGroupItem value="B" aria-label="Calificación con B">
-            B
-          </ToggleGroupItem>
-          <ToggleGroupItem value="C" aria-label="Calificación con C">
-            C
-          </ToggleGroupItem>
-          <ToggleGroupItem value="D" aria-label="Calificación con D">
-            D
-          </ToggleGroupItem>
-          <ToggleGroupItem value="F" aria-label="Calificación con F">
-            F
-          </ToggleGroupItem>
-          <ToggleGroupItem value="P" aria-label="Calificación con P">
-            P
-          </ToggleGroupItem>
-
-
-
-        </ToggleGroup>
-      </div>
-      <Button
-        className="w-full"
-        onClick={addSubject}
-        disabled={currentSubject.grade === '' || currentSubject.credits === 0}
-      >Añadir Calificación</Button>
+        <div className="space-y-2">
+          <Label htmlFor="grades">Calificicación</Label>
+          <ToggleGroup
+            type="single"
+            variant="filled"
+            onValueChange={handleGradeChange}
+            value={currentSubject.grade || ''}
+            className='justify-start'
+          >
+            <ToggleGroupItem value="A" aria-label="Calificación con A ">
+              A
+            </ToggleGroupItem>
+            <ToggleGroupItem value="B" aria-label="Calificación con B">
+              B
+            </ToggleGroupItem>
+            <ToggleGroupItem value="C" aria-label="Calificación con C">
+              C
+            </ToggleGroupItem>
+            <ToggleGroupItem value="D" aria-label="Calificación con D">
+              D
+            </ToggleGroupItem>
+            <ToggleGroupItem value="F" aria-label="Calificación con F">
+              F
+            </ToggleGroupItem>
+            <ToggleGroupItem value="P" aria-label="Calificación con P">
+              P
+            </ToggleGroupItem>
 
 
 
-
-
-
-      <div>
+          </ToggleGroup>
+        </div>
         <Button
-          className="w-full "
-          variant="secondary"
-          onClick={toggleExpand}
-        >{isExpanded ? 'Ocultar' : 'Mostrar'} Asigtaturas</Button>
-      </div>
+          className="w-full"
+          onClick={addSubject}
+          disabled={currentSubject.grade === '' || currentSubject.credits === 0}
+        >Añadir Calificación</Button>
 
-      <br />
-      <hr className='border-dashed p-3' />
-      {isExpanded && (
-        <div className="mt-6">
-          {subjects.length > 0 ? (
-            <ul className="divide-y divide-gray-200 dark:divide-white">
-              {subjects.map((subject, index) => (
-                <li key={index} 
-                className="flex justify-between items-center   px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:text-white dark:hover:bg-gray-800">
-                  <div className="flex items-center space-x-4">
-                    <FaBook />
-                    <div>
-                      <p className="text-sm font-medium">{subject.name}</p>
 
-                      <div className="flex space-x-4 text-sm text-muted-foreground">
-                        <div className="flex items-center"> <MdOutlineNumbers />Créditos: {subject.credits}</div>
-                        <div className="flex items-center"><MdGrade />Calificación: {subject.grade}</div>
+
+
+
+
+        <div>
+          <Button
+            className="w-full "
+            variant="secondary"
+            onClick={toggleExpand}
+          >{isExpanded ? 'Ocultar' : 'Mostrar'} Asigtaturas</Button>
+        </div>
+
+        <br />
+        <hr className='border-dashed p-3' />
+        {isExpanded && (
+          <div className="mt-6">
+            {subjects.length > 0 ? (
+              <ul className="divide-y divide-gray-200 dark:divide-white">
+                {subjects.map((subject, index) => (
+                  <li key={index}
+                    className="flex justify-between items-center   px-4 py-3 rounded-lg hover:bg-gray-50 dark:hover:text-white dark:hover:bg-gray-800">
+                    <div className="flex items-center space-x-4">
+                      <FaBook />
+                      <div>
+                        <p className="text-sm font-medium">{subject.name}</p>
+
+                        <div className="flex space-x-4 text-sm text-muted-foreground">
+                          <div className="flex items-center"> <MdOutlineNumbers />Créditos: {subject.credits}</div>
+                          <div className="flex items-center"><MdGrade />Calificación: {subject.grade}</div>
+                        </div>
+
                       </div>
 
+
                     </div>
-
-
-                  </div>
-                  <button onClick={() => removeSubject(index)} className="text-red-500 hover:text-red-700">
-                    <FaTrash className="h-5 w-5" />
-                  </button>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-gray-500 text-center">Agrega calificaciones para calcular tu GPA.</p>
-          )}
-        </div>
-      )
-      }
-    </CardContent>
-    <CardFooter>
+                    <button onClick={() => removeSubject(index)} className="text-red-500 hover:text-red-700">
+                      <FaTrash className="h-5 w-5" />
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <p className="text-gray-500 text-center">Agrega calificaciones para calcular tu GPA.</p>
+            )}
+          </div>
+        )
+        }
+      </CardContent>
+      <CardFooter>
 
 
 
-    </CardFooter>
-  </Card>
+      </CardFooter>
+    </Card>
   )
 }
