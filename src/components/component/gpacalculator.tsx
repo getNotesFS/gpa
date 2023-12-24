@@ -251,7 +251,7 @@ export default function GPACalculator() {
                   <DialogTrigger asChild>
                     <Button variant="secondary">¡Sorpresa!</Button>
                   </DialogTrigger>
-                  <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 mb-4 min-w-min  md:w-fit sm:w-11/12">
+                  <DialogContent className="overflow-y-auto  max-h-[600px] md:w-2/3 sm:w-11/12 dark:bg-[#151f3b]">
                     <DialogHeader >
                       <DialogTitle>Reclama tu regalo</DialogTitle>
                       <div className="overflow-y-auto text-left">
@@ -300,7 +300,7 @@ export default function GPACalculator() {
                   <DialogTrigger asChild>
                     <Button variant="secondary">¡Sorpresa!</Button>
                   </DialogTrigger>
-                  <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 min-w-min md:w-fit sm:w-11/12">
+                  <DialogContent className="overflow-y-auto  max-h-[600px] md:w-2/3 sm:w-11/12 dark:bg-[#151f3b]">
                     <DialogHeader >
                       <DialogTitle>Reclama tu regalo</DialogTitle>
                       <div className="overflow-y-auto text-left">

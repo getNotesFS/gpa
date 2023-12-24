@@ -41,7 +41,7 @@ export default function HeroSection() {
               <DialogTrigger asChild>
                 <Button variant="secondary">Acerca de</Button>
               </DialogTrigger>
-              <DialogContent className="overflow-y-auto min-h-min max-h-full mt-4 md:w-2/3 sm:w-11/12 dark:bg-[#151f3b]  ">
+              <DialogContent className="overflow-y-auto  max-h-[600px] md:w-2/3 sm:w-11/12 dark:bg-[#151f3b]  ">
                 <DialogHeader >
                   <DialogTitle>¿Cómo se realiza el cálculo?</DialogTitle>
                   <div className="overflow-y-auto text-left ">
