@@ -477,7 +477,7 @@ export default function GPACalculator() {
                           <p className="text-sm font-medium">{subject.name}</p>
 
                           <div className="flex row-gap-3 text-sm text-muted-foreground flex-row flex-wrap">
-                            <div className="flex items-center"><MdOutlineNumbers />Créditos: {subject.credits}</div>
+                            <div className="flex items-center"><MdOutlineNumbers />Créditos: {subject.credits || subject.credits_nc}</div>
                             <div className="flex items-center"><MdGrade />Calificación: {subject.grade}</div>
                             <div className="flex items-center"><MdGrade />Puntos: {subject.points}</div>
                           </div>
