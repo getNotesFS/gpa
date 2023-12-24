@@ -88,7 +88,13 @@ export default function GPACalculator() {
         currentSubject.credits_nc = currentSubject.credits;
         currentSubject.credits = 0;
         currentSubject.points = 0;
+      } else {
+        const tmp_points = gradeToPoint(currentSubject.grade) * currentSubject.credits;
+        currentSubject.points = tmp_points; 
       }
+
+
+
       setSubjects([...subjects, currentSubject]);
       toast({
         title: "Calificación de " + currentSubject.name + " agregada",
@@ -135,7 +141,7 @@ export default function GPACalculator() {
     } else {
       setTotalCredits_nc(0);
     }
-    
+
     const totalCredits = subjects.reduce((total, subject) => total + subject.credits, 0);
 
     if (totalCredits === 0) {
@@ -145,7 +151,7 @@ export default function GPACalculator() {
       return;
     }
 
-   
+
 
     const totalPoints = subjects.reduce((total, subject) => total + (gradeToPoint(subject.grade) * subject.credits), 0);
 
@@ -231,14 +237,14 @@ export default function GPACalculator() {
             <p className="text-xl font-bold">{totalCredits}</p>
             <div>
               {totalCredits_nc != 0 ? (
-                 <div className="text-sm font-semibold text-gray-600 dark:text-gray-300">
-                 <p className="text-xs font-bold">No contables</p>
-                 <p className="text-xs font-bold">{totalCredits_nc}</p>
-               </div>
-               ) : ''
-               }
+                <div className="text-sm font-semibold text-gray-600 dark:text-gray-300">
+                  <p className="text-xs font-bold">No contables</p>
+                  <p className="text-xs font-bold">{totalCredits_nc}</p>
+                </div>
+              ) : ''
+              }
 
-             
+
 
             </div>
           </div>
