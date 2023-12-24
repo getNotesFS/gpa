@@ -21,8 +21,8 @@ const FloatingShareButton = () => {
     };
 
     return (
-        <button onClick={handleShare} className="fixed bottom-5 right-5 z-10 p-3 bg-primary text-white rounded-full">
-            <FaShareAlt className='dark:fill-black'/>
+        <button onClick={handleShare} type='button' name='compartir-btn' aria-label=""  className="fixed bottom-5 right-5 z-10 p-3 bg-primary text-white rounded-full">
+            <FaShareAlt className='dark:fill-black' title='Compartir sitio web'/>
 
         </button>
     );
