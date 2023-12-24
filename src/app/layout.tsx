@@ -1,15 +1,14 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
-import { Inter as FontSans } from "next/font/google"
+import { Inter } from 'next/font/google'
+ 
+
+const inter = Inter({ subsets: ['latin'] })
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/components/theme-provider"
 
-export const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-})
-
+ 
 
 export const metadata: Metadata = {
   title: 'Calcular GPA',
@@ -26,7 +25,7 @@ export default function RootLayout({
 
       <body className={cn(
         "min-h-screen bg-background font-sans antialiased",
-        fontSans.variable
+        inter.className
       )}
       >
         <ThemeProvider
