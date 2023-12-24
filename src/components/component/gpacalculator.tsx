@@ -22,6 +22,8 @@ import {
   DialogDescription,
   DialogHeader,
   DialogTitle,
+  DialogClose,
+  DialogFooter,
   DialogTrigger,
 } from "@/components/ui/dialog"
 type Subject = {
@@ -88,7 +90,7 @@ export default function GPACalculator() {
           </>
         ),
       });
-      
+
 
       calculateGPA();
 
@@ -99,13 +101,13 @@ export default function GPACalculator() {
   };
 
   const removeSubject = (index: number) => {
-    
 
 
-   
+
+
     setSubjects(subjects.filter((_, i) => i !== index));
     calculateGPA();
-   
+
     toast({
       description: (
         <span>
@@ -180,7 +182,7 @@ export default function GPACalculator() {
     setTexto('');
 
     toast({
-      title: "Se han eliminado todas las calificaciones", 
+      title: "Se han eliminado todas las calificaciones",
     })
   };
 
@@ -198,7 +200,7 @@ export default function GPACalculator() {
         <CardTitle className="text-2xl">Calcular GPA</CardTitle>
         <CardDescription>Ingresa la asignatura (o cualquier identificador), el número de créditos y la letra.</CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
+      <CardContent className="space-y-4 ">
         <div className="mt-6 grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4 mb-8">
 
 
@@ -263,7 +265,7 @@ export default function GPACalculator() {
                             <Image src="/dragon-1.jpeg" alt="" width={500} height={500} />
                             <a href="/dragon-1.jpeg" download="dragon-1.jpeg" className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
                               <FaCloudDownloadAlt className="w-5 h-5 mr-2" />
-                              Descargar
+                              Descargar Imagen
                             </a>
                           </div>
 
@@ -276,6 +278,13 @@ export default function GPACalculator() {
 
 
                     </DialogHeader>
+                    <DialogFooter className="lg:justify-center pb-8">
+                      <DialogClose asChild>
+                        <Button type="button" variant="secondary" className="md:w-full lg:w-auto">
+                          Continuar
+                        </Button>
+                      </DialogClose>
+                    </DialogFooter>
                   </DialogContent>
                 </Dialog>
               </div>
@@ -306,7 +315,7 @@ export default function GPACalculator() {
                             <Image src="/dragon-2.jpeg" alt="" width={500} height={500} />
                             <a href="/dragon-2.jpeg" download="dragon-2.jpeg" className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
                               <FaCloudDownloadAlt className="w-5 h-5 mr-2" />
-                              Descargar
+                              Descargar Imagen
                             </a>
                           </div>
                         </div>
@@ -315,6 +324,13 @@ export default function GPACalculator() {
 
 
                     </DialogHeader>
+                    <DialogFooter className="lg:justify-center pb-8">
+                  <DialogClose asChild>
+                    <Button type="button" variant="secondary" className="md:w-full lg:w-auto">
+                      Continuar
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
                   </DialogContent>
                 </Dialog>
               </div>
@@ -367,7 +383,7 @@ export default function GPACalculator() {
             variant="filled"
             onValueChange={handleGradeChange}
             value={currentSubject.grade || ''}
-            className='justify-start'
+            className='justify-start flex-wrap'
           >
             <ToggleGroupItem value="A" aria-label="Calificación con A ">
               A
@@ -393,8 +409,9 @@ export default function GPACalculator() {
           </ToggleGroup>
         </div>
         <Button
-          className="w-full"
+          className="w-full break-words"
           onClick={addSubject}
+          type='button'
           disabled={currentSubject.grade === '' || currentSubject.credits === 0}
         >Añadir Calificación</Button>
 
@@ -405,9 +422,10 @@ export default function GPACalculator() {
 
         <div>
           <Button
-            className="w-full "
+            className="w-full break-words"
             variant="secondary"
             onClick={toggleExpand}
+            type='button'
           >{isExpanded ? 'Ocultar' : 'Mostrar'} Asigtaturas</Button>
         </div>
 
@@ -417,7 +435,7 @@ export default function GPACalculator() {
           <div className="mt-6">
             {subjects.length > 0 ? (
               <section className=' flex flex-col gap-3'>
-                <Button className='self-end' onClick={handleClearSubjects}> <FaTrash className="h-3 w-3 mr-1" /> Clear</Button>
+                <Button className='self-end' type='button' onClick={handleClearSubjects}> <FaTrash className="h-3 w-3 mr-1" /> Limpiar</Button>
 
                 <ul className="flex flex-col gap-2  ">
                   {subjects.map((subject, index) => (
@@ -445,7 +463,7 @@ export default function GPACalculator() {
                 </ul>
               </section>
             ) : (
-              <p className="text-gray-500 text-center">Agrega calificaciones para calcular tu GPA.</p>
+              <p className="text-gray-500 text-center ">Agrega calificaciones para calcular tu GPA.</p>
             )}
           </div>
         )

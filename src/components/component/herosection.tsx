@@ -1,4 +1,4 @@
- 
+
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 import {
@@ -8,6 +8,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogFooter,
+  DialogClose,
 } from "@/components/ui/dialog"
 
 import Image from "next/image"
@@ -15,14 +17,14 @@ import Image from "next/image"
 export default function HeroSection() {
   return (
     // 
-    
+
     <section className="w-full py-48 md:py-24 lg:py-32 xl:py-48   dark:black ">
-      
-      <div className="container px-4 md:px-6">
-      
+
+      <div className=" xs:p-0 sm:px-4 md:px-6">
+
         <div className="flex flex-col items-center space-y-4 text-center">
           <div className="space-y-2">
-          
+
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl/none">
               ¿Cuál es mi <span className="text-red-600">GPA</span>?
             </h1>
@@ -134,7 +136,7 @@ export default function HeroSection() {
 
                       </section>
 
-                      
+
                       <section>
                         <br />
                         <h2 className="text-xl font-bold text-black-600 mb-2">Fuente:</h2>
@@ -151,7 +153,15 @@ export default function HeroSection() {
 
 
                 </DialogHeader>
+                <DialogFooter className="lg:justify-center pb-8">
+                  <DialogClose asChild>
+                    <Button type="button" variant="secondary" className="md:w-full lg:w-auto">
+                      Continuar
+                    </Button>
+                  </DialogClose>
+                </DialogFooter>
               </DialogContent>
+
             </Dialog>
           </div>
 

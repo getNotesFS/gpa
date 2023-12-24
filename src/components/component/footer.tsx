@@ -5,8 +5,8 @@ import { FaLinkedin } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#ffffff] dark:bg-transparent px-6 py-4 mt-4 w-full max-w-7xl">
-      <div className="flex justify-between items-center">
+    <footer className="bg-[#ffffff] dark:bg-transparent   py-4 mt-4 w-full max-w-7xl">
+      <div className="flex justify-between items-center flex-wrap">
         <div className="flex items-center gap-3">
           <Avatar className="h-9 w-9">
             <AvatarImage alt="Author's avatar" src="/dragon-3.jpeg" />
@@ -14,7 +14,7 @@ export default function Footer() {
           </Avatar>
           <div className="grid gap-0.5 text-xs">
             <div className="font-medium">SM</div>
-            <div className="text-gray-500 dark:text-gray-400">contacto@sfmarmol.com</div>
+            <div className="text-gray-500 dark:text-gray-400 break-all">contacto@sfmarmol.com</div>
           </div>
         </div>
         <div className="flex gap-2">
